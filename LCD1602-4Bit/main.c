@@ -1,3 +1,18 @@
+/**
+ * Eduardo Diaz
+ * 
+ * Demonstration of PIO 4-bit Interface for LCD1602.
+ *
+ * HARDWARE CONNECTIONS
+ * - GPIO 0-1 ---> FT232 RX/TX (Default UART)
+ * - GPIO 2-12 ---> LCD Data Bits (0-7) + RS + RW + E
+ * - RP2040 5V ---> LCD 5V
+ * - RP2040 GND ---> LCD GND
+ *
+ *
+ */
+
+
 #include "pico/stdlib.h"
 #include "lcd-4bit.h"
 #include "lcd-4bit.pio.h"
