@@ -23,12 +23,17 @@
 #define LCD_BASE_PIN 6 
 #define LCD_E_PIN    12
 
+#define LCD_CMD_CURSOR_ON       0x0F  // Display ON, Cursor ON, Blink ON
+#define LCD_CMD_CURSOR_OFF      0x0C  // Display ON, Cursor OFF, Blink OFF
+
+
 // Common HD44780 LCD Commands
 #define LCD_CMD_CLEAR_DISPLAY   0x01
 #define LCD_CMD_RETURN_HOME     0x02
 #define LCD_CMD_ENTRY_MODE_SET  0x06
-#define LCD_CMD_DISPLAY_CONTROL 0x0C
+#define LCD_CMD_DISPLAY_CONTROL LCD_CMD_CURSOR_ON
 #define LCD_CMD_FUNCTION_SET    0x28
+
 
 /**
  * @brief Initializes the PIO state machine and configures the LCD1602 hardware into 4-bit mode.
