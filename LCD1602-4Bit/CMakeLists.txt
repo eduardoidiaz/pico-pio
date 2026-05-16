@@ -10,7 +10,7 @@ project(LCD-4Bit C CXX ASM)
 # initialize the sdk
 pico_sdk_init()
 
-add_executable(LCD-4Bit)
+add_executable(LCD-4Bit main.c)
 
 # pico_enable_stdio_usb(LCD-4Bit 1)
 # pico_enable_stdio_uart(LCD-4Bit 0)
