@@ -12,8 +12,8 @@ pico_sdk_init()
 
 add_executable(Display)
 
-pico_enable_stdio_usb(Display 1)
-pico_enable_stdio_uart(Display 0)
+# pico_enable_stdio_usb(Display 1)
+# pico_enable_stdio_uart(Display 0)
 
 # must match with pio filename and executable name from above
 pico_generate_pio_header(Display ${CMAKE_CURRENT_LIST_DIR}/display.pio)
@@ -22,7 +22,7 @@ pico_generate_pio_header(Display ${CMAKE_CURRENT_LIST_DIR}/display.pio)
 target_sources(Display PRIVATE display.c)
 
 # must match with executable name
-target_link_libraries(Display PRIVATE pico_stdlib hardware_pio)
+target_link_libraries(Display PRIVATE pico_stdlib pico_bootsel_via_double_reset hardware_pio)
 
 # Pass cmake -DSTART_PIN=x, where x is the pin you want to use
 # if(START_PIN)
