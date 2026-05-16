@@ -5,31 +5,31 @@ cmake_minimum_required(VERSION 3.13)
 include(../pico_sdk_import.cmake)
 
 # give the project a name (anything you want)
-project(Display-4Bit C CXX ASM)
+project(LCD-4Bit C CXX ASM)
 
 # initialize the sdk
 pico_sdk_init()
 
-add_executable(Display-4Bit)
+add_executable(LCD-4Bit)
 
-# pico_enable_stdio_usb(Display-4Bit 1)
-# pico_enable_stdio_uart(Display-4Bit 0)
+# pico_enable_stdio_usb(LCD-4Bit 1)
+# pico_enable_stdio_uart(LCD-4Bit 0)
 
 # must match with pio filename and executable name from above
-pico_generate_pio_header(Display-4Bit ${CMAKE_CURRENT_LIST_DIR}/display-4bit.pio)
+pico_generate_pio_header(LCD-4Bit ${CMAKE_CURRENT_LIST_DIR}/lcd-4bit.pio)
 
 # must match with executable name and source file names
-target_sources(Display-4Bit PRIVATE display-4bit.c)
+target_sources(LCD-4Bit PRIVATE lcd-4bit.c)
 
 # must match with executable name
-target_link_libraries(Display-4Bit PRIVATE pico_stdlib pico_bootsel_via_double_reset hardware_pio)
+target_link_libraries(LCD-4Bit PRIVATE pico_stdlib pico_bootsel_via_double_reset hardware_pio)
 
 # Pass cmake -DSTART_PIN=x, where x is the pin you want to use
 # if(START_PIN)
-#         target_compile_definitions(Display-4Bit PRIVATE
+#         target_compile_definitions(LCD-4Bit PRIVATE
 #                 START_PIN=${START_PIN}
 #         )
 # endif()
 
 # must match with executable name
-pico_add_extra_outputs(Display-4Bit)
+pico_add_extra_outputs(LCD-4Bit)

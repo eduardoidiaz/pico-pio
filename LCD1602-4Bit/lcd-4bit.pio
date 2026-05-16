@@ -1,0 +1,19 @@
+;
+; Copyright (c) 2020 Raspberry Pi (Trading) Ltd.
+;
+; SPDX-License-Identifier: BSD-3-Clause
+;
+.pio_version 0 // only requires PIO version 0
+
+.program lcd_4bit
+.side_set 1 opt          ; 1 side-set bit -> E pin
+
+.wrap_target
+    out pins, 6   side 0 [1] ; Shift high nibble (DB4-7, RS, RW), E=0, wait setup
+    nop           side 1 [2] ; E high pulse (Latch high nibble)
+    nop           side 0     ; E low
+
+    out pins, 6   side 0 [1] ; Shift low nibble (DB4-7, RS, RW), E=0, wait setup
+    nop           side 1 [2] ; E high pulse (Latch low nibble)
+    nop           side 0     ; E low
+.wrap
