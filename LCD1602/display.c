@@ -1,9 +1,3 @@
-#include <stdio.h>
-#include "pico/stdio.h"
-#include "pico/stdlib.h"
-#include "hardware/pio.h"
-#include "display.pio.h"
-
 /**
  * Eduardo Diaz
  * 
@@ -17,6 +11,12 @@
  *
  *
  */
+
+#include <stdio.h>
+#include "pico/stdio.h"
+#include "pico/stdlib.h"
+#include "hardware/pio.h"
+#include "display.pio.h"
 
 #define LCD_BASE_PIN 2   // DB0 starts here
 #define LCD_PIN_COUNT 10 // DB0–7 + RS + RW
